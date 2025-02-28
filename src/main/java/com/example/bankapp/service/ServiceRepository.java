@@ -11,5 +11,4 @@ public interface ServiceRepository {
     void deleteAccount(Long id);
     AccountDTO deposit(Long id,double amount);
     AccountDTO withdraw(Long id,double amount);
-    //AccountDTO updateAccount(AccountDTO accountDTO,Long id);
 }

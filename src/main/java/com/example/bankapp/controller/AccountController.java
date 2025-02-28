@@ -33,6 +33,7 @@ public class AccountController {
     public ResponseEntity<AccountDTO> createAccount(@RequestBody AccountDTO accountDTO){
        return new ResponseEntity<>(serviceRepository.createAccount(accountDTO), HttpStatus.CREATED);
     }
+    // deposit REST API
     @PutMapping("/{id}/deposit")
     public ResponseEntity<AccountDTO>depositAccount(@PathVariable("id")Long id,
                                                     @RequestBody Map<String,Double>request){
@@ -40,6 +41,7 @@ public class AccountController {
         AccountDTO accountDTO=serviceRepository.deposit(id,amount);
         return ResponseEntity.ok(accountDTO);
     }
+    //withdraw rest API
     @PutMapping("/{id}/withdraw")
     public ResponseEntity<AccountDTO> withdrawAccount(@PathVariable("id")Long id,
                                                       @RequestBody Map<String,Double> request){
@@ -47,6 +49,7 @@ public class AccountController {
         AccountDTO accountDTO=serviceRepository.withdraw(id,amount);
         return ResponseEntity.ok(accountDTO);
     }
+    // Delete Account by id
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAccount(@PathVariable("id")Long id){
         serviceRepository.deleteAccount(id);
